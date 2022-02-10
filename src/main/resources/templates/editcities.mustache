@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Ville Modifier template</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+
+<body>
+<h1>Modification des villes</h1>
+
+	<form method="POST" action="save">
+		<label for="ville">Pays</label>
+
+        <select id="ville" name="country">
+            {{#country}}
+            <option value={{id}}>{{name}} </option>
+            {{/country}}
+        </select>
+
+        <input style="display:none;" {{#city.id}}value="{{city.id}}"{{/city.id}} name="id" type="number"/>
+
+		<label for="name">Ville</label>
+		<input type="text" {{#city.name}}value="{{city.name}}"{{/city.name}} id="name" name="name"/>
+
+		<label for="population">Population</label>
+        <input type="number" {{#city.population}}value="{{city.population}}"{{/city.population}} id="population" name="population" />
+
+
+		<input type="submit" value="Enregistrer" />
+	</form>
